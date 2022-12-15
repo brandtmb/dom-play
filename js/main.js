@@ -1,4 +1,47 @@
-    //https://tinyurl.com/dynamic-html-checker
+
+function highlight(el){
+    if(el.style.backgroundColor == 'white'){
+        el.style.backgroundColor = 'yellow';
+    }else{
+        el.style.backgroundColor ='white';
+    }
+}
+
+function myAlert(){
+    alert ("I'm clicked!")
+}
+
+function highlightActor(actor){
+    
+    let spans = document.querySelectorAll("#play span");  
+    for(const mySpan of spans){ 
+
+        if(actor == mySpan.dataset.actor){
+            mySpan.style.backgroundColor = 'yellow';
+        }else{
+            mySpan.style.backgroundColor ='white';
+        }
+    }
+    
+  // alert(actor);
+}
+
+let spans = document.querySelectorAll("#play span");  
+
+console.log(spans);  
+
+for(const mySpan of spans){ 
+    //mySpan.addEventListener("click", myAlert);
+    //alert(mySpan.dataset.actor);
+
+    mySpan.addEventListener("click",function(ev){ 
+        highlightActor(mySpan.dataset.actor); 
+
+    });
+}
+
+
+  //https://tinyurl.com/dynamic-html-checker
     document.getElementById("html-checker").setAttribute("href","https://validator.w3.org/nu/?doc=" + location.href);
       
     document.getElementById("css-checker").setAttribute("href","https://jigsaw.w3.org/css-validator/validator?uri=" + location.href); 
